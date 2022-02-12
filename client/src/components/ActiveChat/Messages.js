@@ -5,6 +5,7 @@ import moment from "moment";
 
 const Messages = (props) => {
   const { messages, otherUser, userId } = props;
+  // Helper function to sort messages based on time
   const sortByTime = (a, b) => {
     let comparison;
     a.createdAt < b.createdAt ?
