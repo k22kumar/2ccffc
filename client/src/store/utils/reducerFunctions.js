@@ -54,7 +54,7 @@ export const addSearchedUsersToStore = (state, users) => {
     currentUsers[convo.otherUser.id] = true;
   });
 
-  const newState = [...state];
+  let newState = [...state];
   users.forEach((user) => {
     // only create a fake convo if we don't already have a convo with this user
     if (!currentUsers[user.id]) {
