@@ -13,7 +13,7 @@ export const addMessageToStore = (state, payload) => {
 
   return state.map((convo) => {
     if (convo.id === message.conversationId) {
-      convo.messages.push(message);
+      convo.messages = [...convo.messages, message];
       convo.latestMessageText = message.text;
       return convo;
     } else {
@@ -59,7 +59,7 @@ export const addSearchedUsersToStore = (state, users) => {
     // only create a fake convo if we don't already have a convo with this user
     if (!currentUsers[user.id]) {
       let fakeConvo = { otherUser: user, messages: [] };
-      newState.push(fakeConvo);
+      newState = [...state, fakeConvo];
     }
   });
 
@@ -70,7 +70,7 @@ export const addNewConvoToStore = (state, recipientId, message) => {
   return state.map((convo) => {
     if (convo.otherUser.id === recipientId) {
       convo.id = message.conversationId;
-      convo.messages.push(message);
+      convo.messages = [...convo.messages, message];
       convo.latestMessageText = message.text;
       return convo;
     } else {
