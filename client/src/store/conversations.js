@@ -4,6 +4,7 @@ import {
   addSearchedUsersToStore,
   removeOfflineUserFromStore,
   addMessageToStore,
+  getConversations
 } from "./utils/reducerFunctions";
 
 // ACTIONS
@@ -67,22 +68,12 @@ export const addConversation = (recipientId, newMessage) => {
   };
 };
 
-// Helper function to sort messages based on time
-const sortByTime = (a, b) => {
-  let comparison;
-  a.createdAt < b.createdAt ? comparison = -1 : comparison = 1;
-  return comparison;
-}
-
 // REDUCER
 
 const reducer = (state = [], action) => {
   switch (action.type) {
     case GET_CONVERSATIONS:
-      action.conversations.forEach(convo => {
-        convo.messages.sort(sortByTime)
-      });
-      return action.conversations;
+      return getConversations(action.conversations);
     case SET_MESSAGE:
       return addMessageToStore(state, action.payload);
     case ADD_ONLINE_USER: {
