@@ -8,12 +8,8 @@ const Messages = (props) => {
   // Helper function to sort messages based on time
   const sortByTime = (a, b) => {
     let comparison;
-    a.createdAt < b.createdAt ?
-      comparison = -1 : 
-      a.createdAt > b.createdAt ?
-        comparison = 1 :
-        comparison = 0
-    
+    a.createdAt < b.createdAt ? comparison = -1 : comparison = 1;
+
     return comparison;
   }
 
