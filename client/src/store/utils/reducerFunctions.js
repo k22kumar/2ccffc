@@ -60,7 +60,7 @@ export const addSearchedUsersToStore = (state, users) => {
     // only create a fake convo if we don't already have a convo with this user
     if (!currentUsers[user.id]) {
       let fakeConvo = { otherUser: user, messages: [] };
-      newState = [...state, fakeConvo];
+      newState.push(fakeConvo);
     }
   });
 
