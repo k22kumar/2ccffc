@@ -80,18 +80,3 @@ export const addNewConvoToStore = (state, recipientId, message) => {
     }
   });
 };
-
-export const getConversations = (conversations) => {
-  // Helper function to sort messages based on time
-  const sortByTime = (a, b) => {
-    let comparison;
-    a.createdAt < b.createdAt ? comparison = -1 : comparison = 1;
-    return comparison;
-  }
-
-  conversations.forEach(convo => {
-        convo.messages.sort(sortByTime)
-  });
-
-  return conversations;
-}; 

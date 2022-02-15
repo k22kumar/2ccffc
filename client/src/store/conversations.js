@@ -73,7 +73,8 @@ export const addConversation = (recipientId, newMessage) => {
 const reducer = (state = [], action) => {
   switch (action.type) {
     case GET_CONVERSATIONS:
-      return getConversations(action.conversations);
+      action.conversations.forEach((convo) => convo.messages.reverse());
+      return action.conversations;
     case SET_MESSAGE:
       return addMessageToStore(state, action.payload);
     case ADD_ONLINE_USER: {
