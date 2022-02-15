@@ -49,7 +49,7 @@ const Home = (props) => {
       <Grid container component="main" className={classes.root}>
         <CssBaseline />
         <SidebarContainer />
-        <ActiveChat conversation={store.getState().conversations} />
+        <ActiveChat />
       </Grid>
     </>
   );
