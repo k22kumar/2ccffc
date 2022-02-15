@@ -72,7 +72,7 @@ export const addNewConvoToStore = (state, recipientId, message) => {
     if (convo.otherUser.id === recipientId) {
       const convoCopy = { ...convo };
       convoCopy.id = message.conversationId;
-      convoCopy.messages = [...convo.messages, message];
+      convoCopy.push(message);
       convoCopy.latestMessageText = message.text;
       return convoCopy;
     } else {
