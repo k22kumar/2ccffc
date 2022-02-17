@@ -42,10 +42,10 @@ const Login = (props) => {
         <Grid item xs={5}>
           <SideBanner/>
         </Grid>
-        <Grid container item xs={7}>
-          <Grid item>
+        <Grid item xs={7}>
+          
             <SignInOption description={"Don't have an account?"} btnText={"Create Account"} handleOptionClick={() => history.push("/register")} />
-          </Grid>
+          
           <Grid item>
             {/* <form onSubmit={handleLogin}>
           <Grid>
