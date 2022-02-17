@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   content: {
     position: "relative",
     height: "100%",
-    background: "linear-gradient(180deg, #3A8DFF 0%, #86B9FF 100%)",
+    background: `linear-gradient(180deg, ${theme.palette.primary.main} 0%, #86B9FF 100%)`,
     opacity: 0.85,
     display: "flex",
     justifyContent: "center",
@@ -44,7 +44,9 @@ const SideBanner = () => {
         <Box className={classes.bubbleContainer}>
           <img src={BubbleIcon} alt="Chat Bubble" />
         </Box>
-        <Typography className={classes.text}>{"Converse with anyone with any language"}</Typography>
+        <Typography className={classes.text}>
+          {"Converse with anyone with any language"}
+        </Typography>
       </Box>
     </Box>
   );

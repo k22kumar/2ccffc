@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { login } from "./store/utils/thunkCreators";
-import { SideBanner, SignInOption } from "./components/SignIn";
+import { SideBanner, SignInOption, SignInForm } from "./components/SignIn";
 
 // Login Styles
 const useStyles = makeStyles((theme) => ({
@@ -43,40 +43,8 @@ const Login = (props) => {
           <SideBanner/>
         </Grid>
         <Grid item xs={7}>
-          
             <SignInOption description={"Don't have an account?"} btnText={"Create Account"} handleOptionClick={() => history.push("/register")} />
-          
-          <Grid item>
-            {/* <form onSubmit={handleLogin}>
-          <Grid>
-            <Grid>
-              <FormControl margin="normal" required>
-                <TextField
-                  aria-label="username"
-                  label="Username"
-                  name="username"
-                  type="text"
-                />
-              </FormControl>
-            </Grid>
-            <FormControl margin="normal" required>
-              <TextField
-                label="password"
-                aria-label="password"
-                type="password"
-                name="password"
-              />
-            </FormControl>
-            <Grid>
-              <Button type="submit" variant="contained" size="large">
-                Login
-              </Button>
-            </Grid>
-          </Grid>
-        </form> */}
-          </Grid>
-          {/* <Button onClick={() => history.push("/register")}>Register</Button> */}
-          {/* <Typography>Need to register?</Typography> */}
+            <SignInForm newUser={false} handleSubmit={handleLogin}/>
         </Grid>
     </Grid>
   );

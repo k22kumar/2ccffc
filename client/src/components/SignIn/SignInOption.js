@@ -15,14 +15,14 @@ description: {
     fontWeight: 400,
     fontSize: "14px",
     lineHeight: "19.07px",
-    color: "#B0B0B0",
+    color: theme.palette.secondary.main,
     textAlign: "center"
 },
 button: {
     marginRight: "42px",
     boxShadow: "0px 2px 12px 0px #4A6A9533",
       padding: "16px 33px 19px 34px",
-      color: "#3A8DFF",
+      color: theme.palette.primary.main,
   }
 }));
 
