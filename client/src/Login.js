@@ -9,11 +9,21 @@ import {
   FormControl,
   TextField,
 } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 import { login } from "./store/utils/thunkCreators";
+import { SideBanner, SignInOption } from "./components/SignIn";
+
+// Login Styles
+const useStyles = makeStyles((theme) => ({
+  loginContainer: {
+    height: "100vh"
+  }
+}));
 
 const Login = (props) => {
   const history = useHistory();
   const { user, login } = props;
+  const classes = useStyles();
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -28,13 +38,16 @@ const Login = (props) => {
   }
 
   return (
-    <Grid container justify="center">
-      <Box>
-        <Grid container item>
-          <Typography>Need to register?</Typography>
-          <Button onClick={() => history.push("/register")}>Register</Button>
+    <Grid wrap="nowrap" className={classes.loginContainer} container justify="center">
+        <Grid item xs={5}>
+          <SideBanner/>
         </Grid>
-        <form onSubmit={handleLogin}>
+        <Grid container item xs={7}>
+          <Grid item>
+            <SignInOption description={"Don't have an account?"} btnText={"Create Account"} handleOptionClick={() => history.push("/register")} />
+          </Grid>
+          <Grid item>
+            {/* <form onSubmit={handleLogin}>
           <Grid>
             <Grid>
               <FormControl margin="normal" required>
@@ -60,8 +73,11 @@ const Login = (props) => {
               </Button>
             </Grid>
           </Grid>
-        </form>
-      </Box>
+        </form> */}
+          </Grid>
+          {/* <Button onClick={() => history.push("/register")}>Register</Button> */}
+          {/* <Typography>Need to register?</Typography> */}
+        </Grid>
     </Grid>
   );
 };

@@ -6,29 +6,27 @@ import BubbleIcon from "../../assets/bubble.svg";
 
 // SideBanner styles
 const useStyles = makeStyles((theme) => ({
-  imgContainer: {
-    position: "relative"
+  bannerContainer: {
+    height: "100%",
+    background: `url(${PeopleBGImg})`,
+    backgroundSize: "cover",
   },
   content: {
-    margin: "auto",
-    width: "100%",
+    position: "relative",
     height: "100%",
-    position: "absolute",
+    background: "linear-gradient(180deg, #3A8DFF 0%, #86B9FF 100%)",
+    opacity: 0.85,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-
     color: "#FFFFFF",
-    background: "linear-gradient(180deg, #3A8DFF 0%, #86B9FF 100%);",
-    opacity: 0.85,
   },
   bubbleContainer: {
     marginTop: "-28.5%",
-    display: "flex",
-    justifyContent: "center"
   },
   text: {
+    lineHeight: "40px",
     fontSize: "26px",
     width: "269px",
     marginTop: "40px",
@@ -37,18 +35,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Component that is a decorative image used in the login/sign up screens
-const SideBanner = (props) => {
+const SideBanner = () => {
   const classes = useStyles();
 
   return (
-    <Box className={classes.imgContainer}>
+    <Box className={classes.bannerContainer}>
       <Box className={classes.content}>
         <Box className={classes.bubbleContainer}>
           <img src={BubbleIcon} alt="Chat Bubble" />
         </Box>
         <Typography className={classes.text}>{"Converse with anyone with any language"}</Typography>
       </Box>
-        <img src={PeopleBGImg} alt="Group of people smiling and chatting together" />
     </Box>
   );
 };
