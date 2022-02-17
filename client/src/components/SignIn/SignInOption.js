@@ -26,7 +26,7 @@ button: {
   }
 }));
 
-// Component that is a decorative image used in the login/sign up screens
+// Component that allows user to switch between login and sign up screens
 const SignInOption = (props) => {
   const classes = useStyles();
 
