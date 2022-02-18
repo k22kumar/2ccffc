@@ -3,8 +3,7 @@ import {
   addOnlineUserToStore,
   addSearchedUsersToStore,
   removeOfflineUserFromStore,
-  addMessageToStore,
-  getConversations
+  addMessageToStore
 } from "./utils/reducerFunctions";
 
 // ACTIONS
