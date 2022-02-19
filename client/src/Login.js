@@ -1,14 +1,7 @@
 import React from "react";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import {
-  Grid,
-  Box,
-  Typography,
-  Button,
-  FormControl,
-  TextField,
-} from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { login } from "./store/utils/thunkCreators";
 import { SideBanner, SignInOption, SignInForm } from "./components/SignIn";
@@ -17,11 +10,16 @@ import { SideBanner, SignInOption, SignInForm } from "./components/SignIn";
 const useStyles = makeStyles((theme) => ({
   loginContainer: {
     height: "100vh"
+  },
+  bannerContainer: {
+    /* Tablet screens and lower*/
+    "@media (max-width: 960px)": {
+      display: "none"
+    }, 
   }
 }));
 
 const Login = (props) => {
-  const history = useHistory();
   const { user, login } = props;
   const classes = useStyles();
 
@@ -39,11 +37,11 @@ const Login = (props) => {
 
   return (
     <Grid wrap="nowrap" className={classes.loginContainer} container justify="center">
-        <Grid item xs={5}>
+        <Grid className={classes.bannerContainer} item md={5}>
           <SideBanner/>
         </Grid>
-        <Grid item xs={7}>
-            <SignInOption description={"Don't have an account?"} btnText={"Create Account"} handleOptionClick={() => history.push("/register")} />
+        <Grid item xs={12} md={7}>
+            <SignInOption isLoggingIn={true} />
             <SignInForm newUser={false} handleSubmit={handleLogin}/>
         </Grid>
     </Grid>
