@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     /* Tablet screens and lower*/
     "@media (max-width: 960px)": {
       display: "none"
-    }, 
+    }
   }
 }));
 

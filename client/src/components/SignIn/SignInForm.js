@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     input: {
         paddingTop: "20px",
         "@media (max-width: 750px)": {
+            paddingTop: "10px",
             fontSize: "14px"
         },
     },
@@ -91,32 +92,31 @@ return (
             {newUser ? "Create an account." : "Welcome back!"}
         </Typography>
         <form className={classes.form} onSubmit={(e) => handleSubmit(e)}>
+            <FormControl className={classes.formControl}>
+                <TextField
+                    InputProps={{
+                        className: classes.input,
+                    }}
+                    aria-label="username"
+                    label="Username"
+                    name="username"
+                    type="text"
+                    required
+                />
+            </FormControl>
             {
-                newUser && <FormControl className={classes.formControl}>
-                    <TextField
-                        InputProps={{
-                            className: classes.input,
-                        }}
-                        
-                        aria-label="username"
-                        label="Username"
-                        name="username"
-                        type="text"
-                        required
-                    />
-                </FormControl>
-            }
-            <FormControl className={classes.formControl} required>
+                newUser && <FormControl className={classes.formControl} required>
                 <TextField
                     InputProps={{
                             className: classes.input,
                         }}
                     aria-label="E-mail address"
                     label="E-mail address"
-                    name={newUser ? "email" : "username"}
+                    name="email"
                     type="text"
                 />
             </FormControl>
+            }
             {
                 newUser ?
                 <>
