@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography, Button } from "@material-ui/core";
 
-// SignInOption styles
+// AuthOption styles
 const useStyles = makeStyles((theme) => ({
   optionContainer: {
     display: "flex",
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Component that allows user to switch between login and sign up screens
-const SignInOption = (props) => {
+const AuthOption = (props) => {
   const classes = useStyles();
   const history = useHistory();
   const { isLoggingIn } = props;
@@ -57,4 +57,4 @@ const SignInOption = (props) => {
   );
 };
 
-export default SignInOption;
+export default AuthOption;

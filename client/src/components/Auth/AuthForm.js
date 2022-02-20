@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-// SignInForm styles
+// AuthForm styles
 const useStyles = makeStyles((theme) => ({
     formContainer: {
         maxWidth: "400px",
@@ -82,7 +82,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Component that is a decorative image used in the login/sign up screens
-const SignInForm = (props) => {
+const AuthForm = (props) => {
 const classes = useStyles();
 const { newUser, handleSubmit, formErrorMessage } = props;
 
@@ -180,4 +180,4 @@ return (
 );
 };
 
-export default SignInForm;
+export default AuthForm;

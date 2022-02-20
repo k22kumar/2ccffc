@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { login } from "./store/utils/thunkCreators";
-import { SideBanner, SignInOption, SignInForm } from "./components/SignIn";
+import { SideBanner, AuthOption, AuthForm } from "./components/Auth";
 
 // Login Styles
 const useStyles = makeStyles((theme) => ({
@@ -41,8 +41,8 @@ const Login = (props) => {
           <SideBanner/>
         </Grid>
         <Grid item xs={12} md={7}>
-            <SignInOption isLoggingIn={true} />
-            <SignInForm newUser={false} handleSubmit={handleLogin}/>
+            <AuthOption isLoggingIn={true} />
+            <AuthForm newUser={false} handleSubmit={handleLogin}/>
         </Grid>
     </Grid>
   );

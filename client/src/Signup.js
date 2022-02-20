@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { register } from "./store/utils/thunkCreators";
-import { SideBanner, SignInOption, SignInForm } from "./components/SignIn";
+import { SideBanner, AuthOption, AuthForm } from "./components/Auth";
 
 // Signup Styles
 const useStyles = makeStyles((theme) => ({
@@ -51,8 +51,8 @@ const Login = (props) => {
           <SideBanner/>
         </Grid>
         <Grid item xs={12} md={7}>
-            <SignInOption description={"Don't have an account?"} btnText={"Create Account"} handleOptionClick={() => history.push("/register")} />
-            <SignInForm formErrorMessage={formErrorMessage} newUser={true} handleSubmit={handleRegister}/>
+            <AuthOption description={"Don't have an account?"} btnText={"Create Account"} handleOptionClick={() => history.push("/register")} />
+            <AuthForm formErrorMessage={formErrorMessage} newUser={true} handleSubmit={handleRegister}/>
         </Grid>
     </Grid>
   );
