@@ -9,7 +9,7 @@ import { SideBanner, AuthOption, AuthForm } from "./components/Auth";
 // Login Styles
 const useStyles = makeStyles((theme) => ({
   loginContainer: {
-    height: "100vh"
+    height: "100%"
   },
   bannerContainer: {
     /* Tablet screens and lower*/

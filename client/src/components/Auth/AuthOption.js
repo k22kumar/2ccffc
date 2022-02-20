@@ -22,10 +22,10 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginRight: "42px",
     boxShadow: "0px 2px 12px 0px #4A6A9533",
-    padding: "16px 33px 19px 34px",
+    padding: "16px 52px 19px 52px",
     color: theme.palette.primary.main,
     "@media (max-width: 750px)": {
-            padding: "8px 16px 8px 17px",
+            padding: "8px 26px 8px 26px",
             fontSize: "14px"
         }
   }

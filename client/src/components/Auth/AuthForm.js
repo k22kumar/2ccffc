@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     formContainer: {
         maxWidth: "400px",
-        margin: "86px auto 0 97px",
+        margin: "86px auto 106px 97px",
         // Tablet screens and lower
         "@media (max-width: 960px)": {
             margin: "86px auto auto auto"
