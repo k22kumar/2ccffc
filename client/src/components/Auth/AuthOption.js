@@ -8,11 +8,11 @@ const useStyles = makeStyles((theme) => ({
   optionContainer: {
     display: "flex",
     alignItems: "center",
-    marginTop: "30px",
+    marginTop: theme.spacing(15),
   },
   description: {
     marginLeft: "auto",
-    marginRight: "30px",
+    marginRight: theme.spacing(15),
     fontWeight: 400,
     fontSize: theme.typography.fontSize,
     lineHeight: "19.07px",
@@ -20,12 +20,12 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center"
   },
   button: {
-    marginRight: "42px",
+    marginRight: theme.spacing(21),
     boxShadow: "0px 2px 12px 0px #4A6A9533",
-    padding: "16px 52px 19px 52px",
+    padding: theme.spacing(8, 26, 10, 26),
     color: theme.palette.primary.main,
     [theme.breakpoints.down('s')]: {
-            padding: "8px 26px 8px 26px",
+            padding: theme.spacing(4, 13, 4, 13),
             fontSize: theme.typography.fontSize
         }
   }

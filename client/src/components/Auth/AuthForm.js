@@ -16,14 +16,12 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     formContainer: {
         maxWidth: "400px",
-        margin: "86px auto 106px 97px",
-        // Tablet screens and lower
+        margin: theme.spacing(43, "auto", 53, 49),
         [theme.breakpoints.down('md')]: {
-            margin: "86px auto auto auto"
+            margin: theme.spacing(43, "auto", "auto", "auto")
         },
-        // Phones
         [theme.breakpoints.down('s')]: {
-            margin: "70px 30px 0 30px",
+            margin: theme.spacing(35, 15, 0, 15),
             maxWidth: "none",
         },
     },
@@ -39,17 +37,17 @@ const useStyles = makeStyles((theme) => ({
     },
     formControl: {
         width: "100%",
-        marginTop: "12px",
-        marginBottom: "28px",
+        marginTop: theme.spacing(6),
+        marginBottom: theme.spacing(14),
         [theme.breakpoints.down('s')]: {
-            marginTop: "10px",
-            marginBottom: "10px",
+            marginTop: theme.spacing(5),
+            marginBottom: theme.spacing(5),
         },
     },
     input: {
-        paddingTop: "20px",
+        paddingTop: theme.spacing(10),
         [theme.breakpoints.down('s')]: {
-            paddingTop: "10px",
+            paddingTop: theme.spacing(5),
             fontSize: theme.typography.fontSize
         },
     },
@@ -66,16 +64,16 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.primary.main
     },
     button: {
-        marginTop: "12px",
+        marginTop: theme.spacing(6),
         background: theme.palette.primary.main,
         borderRadius: "3px",
         color: "#FFFFFF",
-        padding: "18px 58px 14px 58px",
+        padding: theme.spacing(9, 29,7, 29),
         fontWeight: 700,
         fontSize: theme.typography.button.fontSize,
         lineHeight: "24px",
         [theme.breakpoints.down('s')]: {
-            padding: "9px 27px 7px 27px",
+            padding: theme.spacing(5, 14, 4, 14),
             fontSize: theme.typography.fontSize
         },
     }
