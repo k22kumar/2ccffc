@@ -45,7 +45,7 @@ const AuthOption = (props) => {
     <Box className={classes.optionContainer}>
       <Typography className={classes.description}>
         {
-          isLoggingIn ? "Don't have an account?" : "Need to log in?"
+          isLoggingIn ? "Don't have an account?" : "Already have an account?"
         }
       </Typography>
       <Button className={classes.button} onClick={handleClick}>
