@@ -9,11 +9,10 @@ import { SideBanner, AuthOption, AuthForm } from "./components/Auth";
 // Login Styles
 const useStyles = makeStyles((theme) => ({
   loginContainer: {
-    height: "100%"
+    height: "100vh"
   },
   bannerContainer: {
-    /* Tablet screens and lower*/
-    "@media (max-width: 960px)": {
+    [theme.breakpoints.down('md')]: {
       display: "none"
     }
   }

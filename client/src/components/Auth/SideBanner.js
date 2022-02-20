@@ -9,10 +9,9 @@ const useStyles = makeStyles((theme) => ({
   bannerContainer: {
     height: "100%",
     background: `url(${PeopleBGImg})`,
-    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat"
   },
   content: {
-    position: "relative",
     height: "100%",
     background: `linear-gradient(180deg, ${theme.palette.primary.main} 0%, #86B9FF 100%)`,
     opacity: 0.85,
@@ -23,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
     color: "#FFFFFF",
   },
   bubbleContainer: {
-    marginTop: "-28.5%",
+    marginTop: "-22.5%",
   },
   text: {
     lineHeight: "40px",
-    fontSize: "26px",
+    fontSize: theme.typography.heading.normal,
     width: "269px",
     marginTop: "40px",
     textAlign: "center"

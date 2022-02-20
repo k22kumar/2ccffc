@@ -18,45 +18,45 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: "400px",
         margin: "86px auto 106px 97px",
         // Tablet screens and lower
-        "@media (max-width: 960px)": {
+        [theme.breakpoints.down('md')]: {
             margin: "86px auto auto auto"
         },
         // Phones
-        "@media (max-width: 750px)": {
+        [theme.breakpoints.down('s')]: {
             margin: "70px 30px 0 30px",
             maxWidth: "none",
         },
     },
     heading: {
-        fontSize: "26px",
+        fontSize: theme.typography.heading.normal,
         fontWeight: 600,
         lineHeight: "40px",
         letterSpacing: "0px",
         textAlign: "left",
-        "@media (max-width: 750px)": {
-            fontSize: "20px"
+        [theme.breakpoints.down('s')]: {
+            fontSize: theme.typography.heading.mobile
         },
     },
     formControl: {
         width: "100%",
         marginTop: "12px",
         marginBottom: "28px",
-        "@media (max-width: 750px)": {
+        [theme.breakpoints.down('s')]: {
             marginTop: "10px",
             marginBottom: "10px",
         },
     },
     input: {
         paddingTop: "20px",
-        "@media (max-width: 750px)": {
+        [theme.breakpoints.down('s')]: {
             paddingTop: "10px",
-            fontSize: "14px"
+            fontSize: theme.typography.fontSize
         },
     },
     link: {
         textDecoration: 'none',
         fontWeight: 600,
-        fontSize: "12px",
+        fontSize: theme.typography.link.fontSize,
         lineHeight: "16px"
     },
     form: {
@@ -72,11 +72,11 @@ const useStyles = makeStyles((theme) => ({
         color: "#FFFFFF",
         padding: "18px 58px 14px 58px",
         fontWeight: 700,
-        fontSize: "16px",
+        fontSize: theme.typography.button.fontSize,
         lineHeight: "24px",
-        "@media (max-width: 750px)": {
+        [theme.breakpoints.down('s')]: {
             padding: "9px 27px 7px 27px",
-            fontSize: "14px"
+            fontSize: theme.typography.fontSize
         },
     }
 }));

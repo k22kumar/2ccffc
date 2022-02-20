@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
     marginRight: "30px",
     fontWeight: 400,
-    fontSize: "14px",
+    fontSize: theme.typography.fontSize,
     lineHeight: "19.07px",
     color: theme.palette.secondary.main,
     textAlign: "center"
@@ -24,9 +24,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 2px 12px 0px #4A6A9533",
     padding: "16px 52px 19px 52px",
     color: theme.palette.primary.main,
-    "@media (max-width: 750px)": {
+    [theme.breakpoints.down('s')]: {
             padding: "8px 26px 8px 26px",
-            fontSize: "14px"
+            fontSize: theme.typography.fontSize
         }
   }
 }));

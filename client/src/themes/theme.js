@@ -4,10 +4,18 @@ export const theme = createMuiTheme({
   typography: {
     fontFamily: "Open Sans, sans-serif",
     fontSize: 14,
+    heading: {
+      normal: 26,
+      mobile: 20
+    },
     button: {
       textTransform: "none",
       letterSpacing: 0,
-      fontWeight: "bold"
+      fontWeight: "bold",
+      fontSize: 16
+    },
+    link: {
+      fontSize: 12
     }
   },
   overrides: {
