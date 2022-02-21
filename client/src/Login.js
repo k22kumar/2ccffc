@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh"
   },
   bannerContainer: {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down(theme.breakpoints.values.md)]: {
       display: "none"
     }
   }
@@ -39,7 +39,7 @@ const Login = (props) => {
         <Grid className={classes.bannerContainer} item md={5}>
           <SideBanner/>
         </Grid>
-        <Grid item xs={12} md={7}>
+        <Grid item s={12} md={7}>
             <AuthOption isLoggingIn={true} />
             <AuthForm newUser={false} handleSubmit={handleLogin}/>
         </Grid>

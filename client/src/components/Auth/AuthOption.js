@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     marginTop: theme.spacing(15),
+    [theme.breakpoints.down(theme.breakpoints.values.s)]: {
+      justifyContent: "center"
+    }
   },
   description: {
     marginLeft: "auto",
@@ -17,17 +20,21 @@ const useStyles = makeStyles((theme) => ({
     fontSize: theme.typography.fontSize,
     lineHeight: "19.07px",
     color: theme.palette.secondary.main,
-    textAlign: "center"
+    textAlign: "center",
+    [theme.breakpoints.down(theme.breakpoints.values.s)]: {
+      marginLeft: 0
+    }
   },
   button: {
     marginRight: theme.spacing(21),
     boxShadow: "0px 2px 12px 0px #4A6A9533",
     padding: theme.spacing(8, 26, 10, 26),
     color: theme.palette.primary.main,
-    [theme.breakpoints.down('s')]: {
-            padding: theme.spacing(4, 13, 4, 13),
-            fontSize: theme.typography.fontSize
-        }
+    [theme.breakpoints.down(theme.breakpoints.values.s)]: {
+      padding: theme.spacing(4, 13, 4, 13),
+      fontSize: theme.typography.fontSize,
+      marginRight: 0
+    }
   }
 }));
 

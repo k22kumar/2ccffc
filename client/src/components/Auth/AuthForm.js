@@ -17,12 +17,12 @@ const useStyles = makeStyles((theme) => ({
     formContainer: {
         maxWidth: "400px",
         margin: theme.spacing(43, "auto", 53, 49),
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down(theme.breakpoints.values.lg)]: {
             margin: theme.spacing(43, "auto", "auto", "auto")
         },
-        [theme.breakpoints.down('s')]: {
+        [theme.breakpoints.down(theme.breakpoints.values.s)]: {
             margin: theme.spacing(35, 15, 0, 15),
-            maxWidth: "none",
+            maxWidth: "none"
         },
     },
     heading: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: "40px",
         letterSpacing: "0px",
         textAlign: "left",
-        [theme.breakpoints.down('s')]: {
+        [theme.breakpoints.down(theme.breakpoints.values.s)]: {
             fontSize: theme.typography.heading.mobile
         },
     },
@@ -39,14 +39,18 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         marginTop: theme.spacing(6),
         marginBottom: theme.spacing(14),
-        [theme.breakpoints.down('s')]: {
+        [theme.breakpoints.down(theme.breakpoints.values.lg)]: {
+            marginTop: theme.spacing(5),
+            marginBottom: theme.spacing(9),
+        },
+        [theme.breakpoints.down(theme.breakpoints.values.s)]: {
             marginTop: theme.spacing(5),
             marginBottom: theme.spacing(5),
         },
     },
     input: {
         paddingTop: theme.spacing(10),
-        [theme.breakpoints.down('s')]: {
+        [theme.breakpoints.down(theme.breakpoints.values.s)]: {
             paddingTop: theme.spacing(5),
             fontSize: theme.typography.fontSize
         },
@@ -72,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 700,
         fontSize: theme.typography.button.fontSize,
         lineHeight: "24px",
-        [theme.breakpoints.down('s')]: {
+        [theme.breakpoints.down(theme.breakpoints.values.s)]: {
             padding: theme.spacing(5, 14, 4, 14),
             fontSize: theme.typography.fontSize
         },

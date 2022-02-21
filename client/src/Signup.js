@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     height: "100vh"
   },
   bannerContainer: {
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down(theme.breakpoints.values.md)]: {
       display: "none"
     }, 
   }

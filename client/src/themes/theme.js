@@ -16,6 +16,13 @@ export const theme = createMuiTheme({
     },
     link: {
       fontSize: 12
+    },
+  },
+  breakpoints: {
+    values: {
+      s: 740,
+      md: 1000,
+      lg: 1200
     }
   },
   overrides: {
