@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     formContainer: {
         maxWidth: "400px",
         margin: theme.spacing(43, "auto", 53, 49),
-        [theme.breakpoints.down(theme.breakpoints.values.lg)]: {
+        [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
             margin: theme.spacing(43, "auto", "auto", "auto")
         },
         [theme.breakpoints.down(theme.breakpoints.values.s)]: {

@@ -22,7 +22,7 @@ export const theme = createMuiTheme({
     values: {
       s: 740,
       md: 1000,
-      lg: 1200
+      lg: 1500
     }
   },
   overrides: {

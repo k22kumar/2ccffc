@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
   bubbleContainer: {
     marginTop: "-22.5%",
+    [theme.breakpoints.up(theme.breakpoints.values.lg)]: {
+      marginTop: "-55.5%",
+    },
   },
   text: {
     lineHeight: "40px",

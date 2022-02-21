@@ -36,10 +36,10 @@ const Login = (props) => {
 
   return (
     <Grid wrap="nowrap" className={classes.loginContainer} container justify="center">
-        <Grid className={classes.bannerContainer} item md={5}>
+        <Grid className={classes.bannerContainer} item md={5} lg={4}>
           <SideBanner/>
         </Grid>
-        <Grid item s={12} md={7}>
+        <Grid item s={12} md={7} lg={8}>
             <AuthOption isLoggingIn={true} />
             <AuthForm newUser={false} handleSubmit={handleLogin}/>
         </Grid>
