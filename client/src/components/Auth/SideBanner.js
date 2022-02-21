@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
   bannerContainer: {
     height: "100%",
     background: `url(${PeopleBGImg})`,
-    backgroundRepeat: "no-repeat"
+    backgroundRepeat: "no-repeat",
+      backgroundSize: "cover"
   },
   content: {
     height: "100%",
