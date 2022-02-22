@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography, Avatar } from "@material-ui/core";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex"
   },
@@ -28,23 +28,75 @@ const useStyles = makeStyles(() => ({
     color: "#FFFFFF",
     letterSpacing: -0.2,
     padding: 8
+  },
+  singleImage: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "150px",
+    height: "173px",
+    borderRadius: "10px 10px 0 10px",
+    overflow: "hidden",
+    "& img": {
+      maxWidth: "100%"
+    }
+  },
+  multiImageContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    marginTop: theme.spacing(4.5),
+    marginBottom: theme.spacing(4.5)
+  },
+  multiImage: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "104px",
+    height: "90px",
+    marginRight: theme.spacing(3),
+    borderRadius: "10px 10px 0 10px",
+    overflow: "hidden",
+    "& img": {
+      maxWidth: "100%"
+    }
   }
 }));
 
 const OtherUserBubble = (props) => {
   const classes = useStyles();
-  const { text, time, otherUser } = props;
+  const { text, time, otherUser, attachments } = props;
   return (
     <Box className={classes.root}>
       <Avatar alt={otherUser.username} src={otherUser.photoUrl} className={classes.avatar}></Avatar>
       <Box>
-        <Typography className={classes.usernameDate}>
-          {otherUser.username} {time}
-        </Typography>
+        {
+          (attachments.length === 1 && attachments || !attachments)  && <Typography className={classes.usernameDate}>{otherUser.username} {time}</Typography>
+        }
         <Box className={classes.bubble}>
-          <Typography className={classes.text}>{text}</Typography>
+          {
+            (attachments && attachments.length === 1) && <Box className={classes.singleImage}>
+              <img src={attachments[0]}/>
+            </Box>
+          }
+          {
+            text !== "" && <Typography className={classes.text}>{text}</Typography>
+          }
         </Box>
       </Box>
+      {
+        attachments && attachments.length > 1 && <Box>
+          <Box className={classes.multiImageContainer}>
+            {
+              attachments.map(attachement => <Box className={classes.multiImage}>
+                <img src={attachement}/>
+              </Box>)
+            }
+          </Box>
+          {
+            attachments.length > 1 && <Typography className={classes.usernameDate}>{otherUser.username} {time}</Typography>
+          }
+        </Box>
+      }
     </Box>
   );
 };

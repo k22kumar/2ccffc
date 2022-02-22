@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexWrap: "wrap",
     marginTop: theme.spacing(4.5),
+    marginBottom: theme.spacing(4.5)
   },
   multiImage: {
     display: "flex",
@@ -63,7 +64,7 @@ const SenderBubble = (props) => {
   return (
     <Box className={classes.root}>
       {
-        attachments.length !== 1 && <Typography className={classes.date}>{time}</Typography>
+        (attachments.length === 1 && attachments || !attachments) && <Typography className={classes.date}>{time}</Typography>
       }
       <Box className={classes.bubble}>
         {
@@ -71,7 +72,9 @@ const SenderBubble = (props) => {
             <img src={attachments[0]}/>
           </Box>
         }
-        <Typography className={classes.text}>{text}</Typography>
+        {
+          text !== "" && <Typography className={classes.text}>{text}</Typography>
+        }
       </Box>
       {
         attachments && attachments.length > 1 && <Box className={classes.multiImageContainer}>
