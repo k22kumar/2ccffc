@@ -61,10 +61,11 @@ const useStyles = makeStyles((theme) => ({
 const SenderBubble = (props) => {
   const classes = useStyles();
   const { time, text, attachments } = props;
+  const timeStampAtTop = attachments.length <= 1 || !attachments;
   return (
     <Box className={classes.root}>
       {
-        (attachments.length === 1 && attachments || !attachments) && <Typography className={classes.date}>{time}</Typography>
+        timeStampAtTop && <Typography className={classes.date}>{time}</Typography>
       }
       <Box className={classes.bubble}>
         {

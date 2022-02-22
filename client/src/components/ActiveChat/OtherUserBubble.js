@@ -65,12 +65,13 @@ const useStyles = makeStyles((theme) => ({
 const OtherUserBubble = (props) => {
   const classes = useStyles();
   const { text, time, otherUser, attachments } = props;
+  const timeStampAtTop = attachments.length <= 1 || !attachments;
   return (
     <Box className={classes.root}>
       <Avatar alt={otherUser.username} src={otherUser.photoUrl} className={classes.avatar}></Avatar>
       <Box>
         {
-          (attachments.length === 1 && attachments || !attachments)  && <Typography className={classes.usernameDate}>{otherUser.username} {time}</Typography>
+          timeStampAtTop  && <Typography className={classes.usernameDate}>{otherUser.username} {time}</Typography>
         }
         <Box className={classes.bubble}>
           {
