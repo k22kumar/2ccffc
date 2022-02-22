@@ -47,16 +47,44 @@ const Input = (props) => {
     setText(event.target.value);
   };
 
+  const uploadPic = async (selectedPic) => {
+    const formData = new FormData();
+    formData.append('file', selectedPic);
+    formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_PRESET)
+    const data = await fetch(`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_NAME}/image/upload`, {
+      method: 'POST',
+      body: formData
+  }).then(res => res.json());
+
+  return data;
+  };
+
+  const uploadSelectedPics = async () => {
+    const promises = [];
+      selectedPics.forEach(selectedPic => {
+        promises.push(uploadPic(selectedPic));
+      });
+      const newUploadedPics = [];
+      await Promise.all(promises).then(responses => responses.forEach(response => newUploadedPics.push(response.secure_url)));
+      return newUploadedPics;
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    let uploadedPicsUrls = [];
+    if (selectedPics && selectedPics.length > 0) {
+      uploadedPicsUrls = await uploadSelectedPics();
+    }
     // add sender user info if posting to a brand new convo, so that the other user will have access to username, profile pic, etc.
     const reqBody = {
       text: event.target.text.value,
       recipientId: otherUser.id,
       conversationId,
-      sender: conversationId ? null : user
+      sender: conversationId ? null : user,
+      attachments: uploadedPicsUrls
     };
     await postMessage(reqBody);
+    setSelectedPics([]);
     setText("");
   };
 
