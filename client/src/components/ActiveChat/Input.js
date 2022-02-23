@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { postMessage } from "../../store/utils/thunkCreators";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import { PreviewPic } from "./index";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,23 +51,30 @@ const Input = (props) => {
   const uploadPic = async (selectedPic) => {
     const formData = new FormData();
     formData.append('file', selectedPic);
-    formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_PRESET)
-    const data = await fetch(`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_NAME}/image/upload`, {
-      method: 'POST',
-      body: formData
-  }).then(res => res.json());
+    formData.append('upload_preset', process.env.REACT_APP_CLOUDINARY_PRESET);
 
-  return data;
+    const res = await axios.post(`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_NAME}/image/upload`, formData,
+    {
+      transformRequest: [function (data, headers) {
+      delete headers['x-access-token'];
+      return data;
+    }],
+    });
+
+    return res.data.secure_url;
   };
 
   const uploadSelectedPics = async () => {
-    const promises = [];
+    const newUploadedPics = [];
       selectedPics.forEach(selectedPic => {
-        promises.push(uploadPic(selectedPic));
+        const generateURL = async () => {
+          const newURL = await uploadPic(selectedPic);
+          return newURL;
+        }
+        newUploadedPics.push(generateURL());
       });
-      const newUploadedPics = [];
-      await Promise.all(promises).then(responses => responses.forEach(response => newUploadedPics.push(response.secure_url)));
-      return newUploadedPics;
+      
+      return Promise.all(newUploadedPics);
   };
 
   const handleSubmit = async (event) => {
