@@ -38,7 +38,6 @@ const PreviewPic = (props) => {
     
     useEffect(() => {
         setPicURL(URL.createObjectURL(pic));
-        // free url from memory
         return () => {
             URL.revokeObjectURL(picURL);
         }
