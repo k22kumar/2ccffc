@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PreviewPic = (props) => {
     const classes = useStyles();
-    const { onClose, pic, picIndex } = props;
+    const { onClose, pic } = props;
     const [picURL, setPicURL] = useState(undefined);
     
     useEffect(() => {
@@ -45,7 +45,7 @@ const PreviewPic = (props) => {
 
     return (
         <Box className={classes.root}>
-            <Button className={classes.close} onClick={() => onClose(picIndex)}>
+            <Button className={classes.close} onClick={() => onClose(pic.uniqueKey)}>
                 <CancelIcon fontSize={"large"}/>
             </Button>
             <Box className={classes.imgContainer}>

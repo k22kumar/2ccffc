@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     backgroundColor: "#F4F6FA",
     borderRadius: 8,
-    overflowX: "auto"
+    overflowX: "auto",
+    marginTop: theme.spacing(5)
   }
 }));
 
@@ -100,14 +101,15 @@ const Input = (props) => {
     const newSelectedPics = [...selectedPics];
     for (let i = 0; i < files.length; i++) {
       const file = files.item(i);
-      newSelectedPics.push(file)
+      file.uniqueKey = `${file.name}${Date.now()}`;
+      newSelectedPics.push(file);
     }
     setSelectedPics(newSelectedPics);
   };
 
-  const handleClose = (index) => {
-    const newSelectedPics = [...selectedPics];
-    newSelectedPics.splice(index, 1);
+  const handleClose = (uniqueKey) => {
+    let newSelectedPics = [...selectedPics];
+    newSelectedPics = newSelectedPics.filter(selectedPic => selectedPic.uniqueKey !== uniqueKey);
     setSelectedPics(newSelectedPics);
   };
 
@@ -116,7 +118,7 @@ const Input = (props) => {
     {
       selectedPics && selectedPics.length > 0 && <Box className={classes.previewContainer}>
       {
-        selectedPics.map((selectedPic, index) => <PreviewPic key={index} onClose={handleClose} picIndex={index} pic={selectedPic}/>)
+        selectedPics.map((selectedPic) => <PreviewPic key={selectedPic.uniqueKey} onClose={handleClose} pic={selectedPic}/>)
       }
     </Box>
     }
