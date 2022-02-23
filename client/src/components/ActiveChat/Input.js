@@ -131,13 +131,14 @@ const Input = (props) => {
           value={text}
           name="text"
           onChange={handleChange}
-          endAdornment={<InputAdornment position="end">
-                            <label className={classes.fileSelectorLabel} aria-label="File Selector">
-                              <AddCircleIcon className={classes.addIconStyles} fontSize={"large"}/>
-                              <input className={classes.fileSelector} type="file" multiple="multiple" onChange={(e) => handleSelectImage(e.target.files)}/>
-                            </label>
-                        </InputAdornment>}
-        />
+          endAdornment={
+            <InputAdornment position="end">
+              <label className={classes.fileSelectorLabel} aria-label="File Selector">
+                <AddCircleIcon className={classes.addIconStyles} fontSize={"large"}/>
+                <input className={classes.fileSelector} type="file" multiple="multiple" onChange={(e) => handleSelectImage(e.target.files)}/>
+              </label>
+            </InputAdornment>
+          }></FilledInput>
       </FormControl>
     </form>
     </Box>
