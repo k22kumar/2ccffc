@@ -98,7 +98,10 @@ const Input = (props) => {
 
   const handleSelectImage = (files) => {
     const newSelectedPics = [...selectedPics];
-    newSelectedPics.push(files[0]);
+    for (let i = 0; i < files.length; i++) {
+      const file = files.item(i);
+      newSelectedPics.push(file)
+    }
     setSelectedPics(newSelectedPics);
   };
 
@@ -129,7 +132,7 @@ const Input = (props) => {
           endAdornment={<InputAdornment position="end">
                             <label className={classes.fileSelectorLabel} aria-label="File Selector">
                               <AddCircleIcon className={classes.addIconStyles} fontSize={"large"}/>
-                              <input className={classes.fileSelector} type="file" onChange={(e) => handleSelectImage(e.target.files)}/>
+                              <input className={classes.fileSelector} type="file" multiple="multiple" onChange={(e) => handleSelectImage(e.target.files)}/>
                             </label>
                         </InputAdornment>}
         />
