@@ -5,3 +5,5 @@ export { default as Input } from "./Input";
 export { default as Header } from "./Header";
 export { default as Messages } from "./Messages";
 export { default as PreviewPic } from "./PreviewPic";
+export { default as SingleImage } from "./SingleImage";
+export { default as MultipleImages } from "./MultipleImages";
