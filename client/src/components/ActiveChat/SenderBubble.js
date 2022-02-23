@@ -80,7 +80,7 @@ const SenderBubble = (props) => {
       {
         attachments && attachments.length > 1 && <Box className={classes.multiImageContainer}>
           {
-            attachments.map(attachement => <Box className={classes.multiImage}>
+            attachments.map(attachement => <Box key={Date.now()} className={classes.multiImage}>
               <img src={attachement} alt={""}/>
             </Box>)
           }
