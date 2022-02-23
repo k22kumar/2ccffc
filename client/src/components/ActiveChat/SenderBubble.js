@@ -1,8 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
+import { SingleImage, MultipleImages } from "./index";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
@@ -29,13 +30,27 @@ const useStyles = makeStyles(() => ({
 
 const SenderBubble = (props) => {
   const classes = useStyles();
-  const { time, text } = props;
+  const { time, text, attachments } = props;
+  const timeStampAtTop = attachments.length <= 1 || !attachments;
   return (
     <Box className={classes.root}>
-      <Typography className={classes.date}>{time}</Typography>
+      {
+        timeStampAtTop && <Typography className={classes.date}>{time}</Typography>
+      }
       <Box className={classes.bubble}>
-        <Typography className={classes.text}>{text}</Typography>
+        {
+          (attachments && attachments.length === 1) && <SingleImage attachments={attachments}/>
+        }
+        {
+          text !== "" && <Typography className={classes.text}>{text}</Typography>
+        }
       </Box>
+      {
+        attachments && attachments.length > 1 && <MultipleImages attachments={attachments} sender={true}/>
+      }
+      {
+        attachments.length > 1 && <Typography className={classes.date}>{time}</Typography>
+      }
     </Box>
   );
 };
